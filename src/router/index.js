@@ -30,6 +30,11 @@ const routes = [
     path: '/admin',
     name: 'admin',
     component: () => import('../views/AdminView.vue')
+  },
+  {
+    path: '/secreta',
+    name: 'secreta',
+    component: () => import('../views/VistaSecreta.vue')
   }
 
 ]
