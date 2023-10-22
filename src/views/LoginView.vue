@@ -53,7 +53,6 @@ const handleSubmit = async () => {
         const res = await store.dispatch('login', { email: email.value, password: password.value });
 
         if (Object.prototype.hasOwnProperty.call(res, 'message')) {
-            showToast(res.error, 'danger', 'red')
             isLoad.value = false;
             isButtonDisabled.value = false;
             if (res.message == 'Password Incorrecto') {
@@ -76,14 +75,14 @@ const handleSubmit = async () => {
 
 const showPassword = ref(false)
 const passwordType = computed(() => showPassword.value ? 'text' : 'password')
-const buttonText = computed(() => showPassword.value ? 'Ocultar' : 'Mostrar')
+const buttonText = computed(() => showPassword.value ? 'Hidden' : 'Show')
 const togglePassword = () => {
     showPassword.value = !showPassword.value
 }
 
 </script>
 
-<style scoped>
+<style scoped  >
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Poppins:400,500&display=swap");
 @import '../assets/styles/loginStyle.scss'
 

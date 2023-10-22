@@ -4,8 +4,9 @@ export default createStore({
 state:{
     //Datos
     counter: 1,
-    jwt: '',
-    error: '',
+    user: null,
+    rol: null,
+
 },
 getters: {
     //Datos Computados
@@ -18,30 +19,38 @@ mutations: {
     //set sync
     setCounter(state, value){
         state.counter = value;
+    },
+    setUser(state, value){
+        state.user = value;
+    },
+    setRol(state, value){
+        state.rol = value;
     }
 },
 actions: {
     //set async ejemplo consumir apis
-    async login(email, password) {
+    async login({ commit }, {email, password}) {
         try {
             const res = await fetch("https://becanchaclara-production.up.railway.app/auth/login", {
                 method: "POST",
                 headers: {
-                    "Accept": "application/json",
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({ email, password })
             })
 
-            const response = await res.json()
+            if(res.ok){
+                const user = await res.json()
+                localStorage.setItem('token', user.token)
 
-            if('errors' in response){
-                this.error = "Login failed"
-                return false
+                commit('setUser', localStorage.getItem('token'))
+                return user
+            }else{
+
+                const err = await res.json()
+
+                return err
             }
-
-            this.jwt = response.data.access_token
-            return true
 
 
         } catch (error) {
