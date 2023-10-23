@@ -30,8 +30,8 @@ import { useStore } from 'vuex';
 import { showToast } from '@/utils/toast';
 import router from '@/router';
 
-let email = ref("");
-let password = ref("");
+const email = ref("");
+const password = ref("");
 const isLoad = ref(false);
 const isButtonDisabled = ref(false);
 const store = useStore();
