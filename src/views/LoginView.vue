@@ -50,7 +50,7 @@ const handleSubmit = async () => {
     }
 
     try {
-        const res = await store.dispatch('login', { email: email.value, password: password.value });
+        const res = await store.dispatch('login', { email: email.value, password: password.value })
 
         if (Object.prototype.hasOwnProperty.call(res, 'message')) {
             isLoad.value = false;
