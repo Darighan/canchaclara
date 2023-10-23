@@ -50,7 +50,10 @@ const handleSubmit = async () => {
     }
 
     try {
-        const res = await store.dispatch('login', { email: email.value, password: password.value })
+        const res = await store.dispatch('login', {
+            email: email.value,
+            password: password.value
+        })
 
         if (Object.prototype.hasOwnProperty.call(res, 'message')) {
             isLoad.value = false;
@@ -85,6 +88,4 @@ const togglePassword = () => {
 <style scoped  >
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Poppins:400,500&display=swap");
 @import '../assets/styles/loginStyle.scss'
-
-
 </style>
