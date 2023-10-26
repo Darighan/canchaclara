@@ -43,6 +43,7 @@ export default createStore({
 
                 if (res.ok) {
                     const user = await res.json()
+                    console.log(user)
                     localStorage.setItem('token', user.token)
 
                     commit('setUser', localStorage.getItem('token'))
@@ -58,7 +59,26 @@ export default createStore({
             } catch (error) {
                 console.log(error)
             }
-        }
+        },
+
+        async verifyToken() {
+            try {
+                const res = await fetch(
+                    'https://becanchaclara-production.up.railway.app/auth/verifyToken',
+                    {
+                        method: 'GET',
+                        headers: {
+                            'x-token': localStorage.getItem('token'),
+                            Accept: '*/*',
+                        },
+                    },
+                )
+                const data = await res.json()
+                return data
+            } catch (error) {
+                console.log(error)
+            }
+        },
     },
     modules: {
         //subdivide the store
