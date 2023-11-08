@@ -42,7 +42,23 @@ const routes = [
     meta: {
       isAuth: true
     }
+  },
+  {
+    path: '/deportes',
+    name: 'deportes',
+    component: () => import('../views/ClientHomeView.vue'),
+    meta: {
+      isAuth: true
+    }
+
+  },
+  {
+    path: '/empresa',
+    name: 'empresa',
+    component: () => import('../views/EmpresaView.vue'),
   }
+
+
 
 ]
 
@@ -59,7 +75,7 @@ router.beforeEach(async (to, from, next) => {
     const store = useStore()
     const verifyToken = await store.dispatch('verifyToken')
     console.log(verifyToken)
-    if (localStorage.getItem('token') && verifyToken.msg == "Token valido" ) {
+    if (localStorage.getItem('token') && verifyToken.msg == "Token valido") {
       next()
     } else {
       next('/login')

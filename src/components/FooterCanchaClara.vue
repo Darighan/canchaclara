@@ -1,5 +1,5 @@
 <template>
-<div class="blockcode">
+<div class="contenedor-footer">
   <div class="header">Footer</div>
 
   <footer class="page-footer shadow">
@@ -7,12 +7,11 @@
       <div class="d-flex flex-wrap justify-content-between">
         <div>
           <a href="/" class="d-flex align-items-center p-0 text-dark">
-            <img alt="logo" src="" width="30px" />
-            <span class="ms-3 h5 font-weight-bold">Devwares</span>
+            <img alt="logoCanchaClara" src="" width="30px" />
+            <span class="ms-3 h5 font-weight-bold">CanchaClara</span>
           </a>
           <p class="my-3" style="width: 250px">
-            We are creating High Quality Resources and tools to Aid developers during the
-            developement of their projects
+            Creando una nueva experiencia para el mundo deportivo
           </p>
           <span class="mt-4">
             <button class="btn btn-dark btn-flat p-2">
@@ -82,4 +81,12 @@
 </script>
 
 <style scoped>
+contenedor-footer {
+
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
 </style>

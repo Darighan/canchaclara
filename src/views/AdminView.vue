@@ -1,5 +1,4 @@
 <template>
-    <LandPageHeader />
 <div>
     <div class="container">
         <h2>Horario y Agendamiento de Canchas</h2>
@@ -21,7 +20,7 @@
 </template>
 
 <script setup>
-import LandPageHeader from '@/components/LandPageHeader.vue';
+
 
 
 </script>

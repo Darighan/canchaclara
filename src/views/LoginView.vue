@@ -67,7 +67,7 @@ const handleSubmit = async () => {
         }
         isLoad.value = false;
         isButtonDisabled.value = false;
-        router.push('/secreta')
+        router.push('/deportes')
 
     } catch (error) {
         console.log(error)
