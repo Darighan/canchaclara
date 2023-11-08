@@ -3,19 +3,19 @@
         <h1>Registro de Usuario</h1>
         <form>
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required v-model="inptNombre"><br>
+            <input type="text" id="nombre" name="nombre" autocomplete="off" required v-model="inptNombre"><br>
 
             <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required v-model="inptApellido"><br>
+            <input type="text" id="apellido" name="apellido" autocomplete="off" required v-model="inptApellido"><br>
 
             <label for="correo">Correo electrónico:</label>
-            <input type="email" id="correo" name="correo" required v-model="inptEmail"><br>
+            <input type="text" id="correo" name="correo"  autocomplete="off" required v-model="inptEmail"><br>
 
             <label for="contrasena">Contraseña:</label>
-            <input type="password" id="contrasena" name="contrasena" required v-model="inptPassword"><br>
+            <input type="password" id="contrasena"  autocomplete="off" name="contrasena" required v-model="inptPassword"><br>
 
             <label for="telefono">Telefono:</label>
-            <input type="number" id="telefono" name="telefono" required v-model="inptTelefono"><br>
+            <input type="number" id="telefono" name="telefono" autocomplete="off" required v-model="inptTelefono"><br>
 
             <!-- Agrega aquí más campos según tus necesidades -->
 
@@ -78,8 +78,14 @@ const handleSubmit = async () => {
         return;
     }
 
-
-}
+    const clearFormRegister = () => {
+        inptNombre.value = "";
+        inptApellido.value = "";
+        inptEmail.value = "";
+        inptPassword.value = "";
+        inptTelefono.value = "";
+    
+    }
 
 const registerObj = {
     nombre: inptNombre.value,
@@ -93,10 +99,14 @@ postApi(`${process.env.API}/addUser`, registerObj)
 .then(data => {
     if(data.message === 'ok'){
         showToast('Usuario registrado con exito', 'success', 'green')
+        clearFormRegister();
     }
 }).catch(error => {
     console.log(error)
 })
+}
+
+
 </script>
 
 <style scoped>

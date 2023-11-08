@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
+import 'vue-material-design-icons/styles.css'
+
 
 import "mosha-vue-toastify/dist/style.css"  
 import 'vuetify/styles'

@@ -64,7 +64,7 @@ export default createStore({
         async verifyToken() {
             try {
                 const res = await fetch(
-                    'https://becanchaclara-production.up.railway.app/auth/verifyToken',
+                    `${process.env.API}/auth/verifyToken`,
                     {
                         method: 'GET',
                         headers: {

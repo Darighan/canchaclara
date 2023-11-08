@@ -4,11 +4,11 @@
             <header> Login</header>
             <form action="#">
                 <div class="field">
-                    <span class="fa fa-user"></span>
+                    <span class="fas fa-user"></span>
                     <input type="text" required placeholder="Ingrese su Correo" v-model="email" />
                 </div>
                 <div class="field space">
-                    <span class="fa fa-lock"></span>
+                    <span class="fas fa-lock"></span>
                     <input :type="passwordType" class="pass-key" required placeholder="Ingrese su Contraseña"
                         v-model="password" />
                     <span class="show" @click="togglePassword"> {{ buttonText }} </span>
