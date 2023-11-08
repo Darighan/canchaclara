@@ -32,7 +32,7 @@ export default createStore({
         async login({ commit }, { email, password }) {
             try {
                 const res = await fetch(
-                    'https://becanchaclara-production.up.railway.app/auth/login',
+                    `${process.env.API}/auth/login`,
                     {
                         method: "POST",
                         headers: {

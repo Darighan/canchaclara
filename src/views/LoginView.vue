@@ -16,6 +16,13 @@
                 <div class="pass">
                     <a href="#">Olvidaste la contraseña?</a>
                 </div>
+                <div class="register">
+                    <router-link :to="{ name: 'register' }">
+
+                        <a>Registrate!</a>
+
+                    </router-link>
+                </div>
                 <div class="field">
                     <input type="submit" value="Login" @click.prevent="handleSubmit" />
                 </div>
@@ -65,6 +72,7 @@ const handleSubmit = async () => {
             }
             return;
         }
+        showToast('Bienvenido a Cancha Clara', 'success', 'green')
         isLoad.value = false;
         isButtonDisabled.value = false;
         router.push('/deportes')

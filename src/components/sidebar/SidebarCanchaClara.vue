@@ -1,40 +1,37 @@
 <script setup>
+import 'vue-material-design-icons/styles.css';
 
-import { toggleSidebar, sidebarWidth} from './sidebarState'
 
 
 </script>
 
 <template>
-    <div class="sidebar" :style="{ width: sidebarWidth}">
-        CanchaClara
-        <span class="collapse-icon" @click="toggleSidebar">
-            <i class="bi bi-arrow-right"></i>
-        </span>
-    </div>
-    </template>
+    <v-card>
+      <v-layout>
+        <v-navigation-drawer
+          class="bg-deep-purple"
+          theme="dark"
+          permanent
+        >
+          <v-list color="transparent">
+            <v-list-item prepend-icon="mdi-view-dashboard" title="Dashboard"></v-list-item>
+            <v-list-item prepend-icon="mdi-account-box" title="Account"></v-list-item>
+            <v-list-item prepend-icon="mdi-gavel" title="Admin"></v-list-item>
+          </v-list>
+  
+          <template v-slot:append>
+            <div class="pa-2">
+              <v-btn block>
+                Logout
+              </v-btn>
+            </div>
+          </template>
+        </v-navigation-drawer>
+
+      </v-layout>
+    </v-card>
+  </template>
 
 <style>
-:root{
-    --sidebar-bg-color: #2c3e50;
-    --sidebar-item-hover: #2c3e50;
-    --sidebar-item-active: #2c3e50;
-}
-.sidebar {
-    color: rgb(255, 255, 255);
-    background-color: var(--sidebar-bg-color);
-    text-align: center;
-    float: right;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    padding: 0.5em;
 
-    transition: 0.3s ease;
-
-    display: flex;
-    flex-direction: column;
-}
 </style>
