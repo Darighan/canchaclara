@@ -13,10 +13,14 @@
         <v-btn>
           Hola soy un Button
         </v-btn>
-        <v-btn>
+        </router-link>
+        <router-link :to="{ name: 'register2'}">
+         <v-btn>
           Hola Soy otro Button
-        </v-btn>
-      </router-link>
+        </v-btn> 
+        </router-link>
+        
+      
     </v-navigation-drawer>
 
     <!-- Contenido principal -->
