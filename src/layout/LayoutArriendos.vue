@@ -14,7 +14,7 @@
           Hola soy un Button
         </v-btn>
         </router-link>
-        <router-link :to="{ name: 'register2'}">
+        <router-link :to="{ name: 'register2' }">
          <v-btn>
           Hola Soy otro Button
         </v-btn> 
