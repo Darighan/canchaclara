@@ -1,7 +1,7 @@
 <template>
     <div class="Contenedor central">
         <div class="Contenedor-Deportista">
-            <router-link :to="{ name: 'deportes' }">
+            <router-link :to="{ name: 'arriendos' }">
                 <v-btn>
                     Login Contenedor-Deportista
                 </v-btn>

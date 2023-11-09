@@ -1,26 +1,29 @@
 <template>
   <v-app>
     <!-- Header -->
-    <v-app-bar app color="primary">
+    <v-app-bar app color="blue-lighten-4">
       <v-app-bar-nav-icon @click.stop="toggleSidebar" />
-      <v-toolbar-title>My App</v-toolbar-title>
+      <v-toolbar-title>Cancha Clara</v-toolbar-title>
     </v-app-bar>
 
     <!-- Sidebar -->
     <v-navigation-drawer app permanent stateless :mini-variant="miniVariant" :clipped="clipped">
       <!-- Contenido de la barra lateral -->
-      <router-link :to="{ name: 'testView' }">
+
+      <router-link :to="{ name: 'agendarArriendos' }">
         <v-btn>
           Hola soy un Button
         </v-btn>
-        </router-link>
-        <router-link :to="{ name: 'register2' }">
-         <v-btn>
+      </router-link>
+
+      <router-link :to="{ name: 'verCanchas' }">
+        <v-btn>
           Hola Soy otro Button
-        </v-btn> 
-        </router-link>
-        
-      
+        </v-btn>
+      </router-link>
+
+
+
     </v-navigation-drawer>
 
     <!-- Contenido principal -->

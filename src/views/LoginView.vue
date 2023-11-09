@@ -18,9 +18,7 @@
                 </div>
                 <div class="register">
                     <router-link :to="{ name: 'register' }">
-
                         <a>Registrate!</a>
-
                     </router-link>
                 </div>
                 <div class="field">
@@ -75,7 +73,7 @@ const handleSubmit = async () => {
         showToast('Bienvenido a Cancha Clara', 'success', 'green')
         isLoad.value = false;
         isButtonDisabled.value = false;
-        router.push('/deportes')
+        router.push('/arriendos')
 
     } catch (error) {
         console.log(error)

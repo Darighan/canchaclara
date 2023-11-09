@@ -6,20 +6,56 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import("../layout/LayoutArriendos.vue"),
+    redirect: {name: 'inicio'},
+    component: () => import("../layout/NormalLayout.vue"),
     children:[
       {
-        path: '/testView',
-        name:'testView',
-        component: () => import ("../views/Arriendos/testView.vue")
+        path: '/inicio',
+        name:'inicio',
+        component: () => import ("../views/HomeView.vue")
       },
+     
       {
-        path: '/register',
-        name: 'register2',
-        component: () => import('../views/RegisterView.vue')
+        path: '/login',
+        name: 'login',
+        component: () => import('../views/LoginView.vue')
       }
     ]
   },
+  {
+    path: '/arriendos',
+    name: 'arriendos',
+    redirect: {name: 'arriendosHome'},
+    component: () => import('../layout/LayoutArriendos.vue'),
+    children: [
+      {
+        path: '/arriendosHome',
+        name: 'arriendosHome',
+        component: () => import('../views/Arriendos/ArriendosHomeView.vue'),
+        meta: {
+          isAuth : true
+        }
+      },
+      {
+        path: '/agendarArriendos',
+        name: 'agendarArriendos',
+        component: () => import('../views/Arriendos/AgendarArriendosView.vue'),
+        meta: {
+          isAuth : true
+        }
+      },
+      {
+        path: '/verCanchas',
+        name: 'verCanchas',
+        component: () => import('../views/Arriendos/VerCanchasView.vue'),
+        meta: {
+          isAuth : true
+        }
+      }
+    ]
+
+  },
+
   {
     path: '/about',
     name: 'about',
@@ -33,12 +69,7 @@ const routes = [
     name: 'register',
     component: () => import('../views/RegisterView.vue')
   },
-  {
-    path: '/login',
-    name: 'login',
-    component: () => import('../views/LoginView.vue')
 
-  },
   {
     path: '/admin',
     name: 'admin',
