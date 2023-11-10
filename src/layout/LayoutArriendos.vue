@@ -4,6 +4,9 @@
     <v-app-bar app color="blue-lighten-4">
       <v-app-bar-nav-icon @click.stop="toggleSidebar" />
       <v-toolbar-title>Cancha Clara</v-toolbar-title>
+      <router-link :to="{ name: 'home' }">
+        <v-btn class="ml-auto" @click="cerrarSesion">Cerrar Sesión</v-btn>
+      </router-link>
     </v-app-bar>
 
     <!-- Sidebar -->
@@ -11,15 +14,21 @@
       <!-- Contenido de la barra lateral -->
 
       <router-link :to="{ name: 'agendarArriendos' }">
-        <v-btn>
-          Hola soy un Button
-        </v-btn>
+        <div class="test">
+          <v-btn>
+            Agendar Arriendos
+          </v-btn>
+        </div>
+
       </router-link>
 
+
       <router-link :to="{ name: 'verCanchas' }">
-        <v-btn>
-          Hola Soy otro Button
-        </v-btn>
+        <div class="test">
+          <v-btn>
+            Ver Canchas
+          </v-btn>
+        </div>
       </router-link>
 
 
@@ -35,7 +44,7 @@
     </v-main>
 
     <!-- Footer -->
-    <v-footer app>
+    <v-footer app color="blue-lighten-4">
       <!-- Contenido del pie de página -->
       hola soy un footer
     </v-footer>
@@ -48,9 +57,16 @@ import { ref } from 'vue';
 const miniVariant = ref(false);
 const clipped = ref(false);
 
+
 const toggleSidebar = () => {
   miniVariant.value = !miniVariant.value;
   clipped.value = !clipped.value;
 };
+
+const cerrarSesion = () => {
+  localStorage.removeItem('token');
+}
 </script>
-<style></style>
+<style lang="scss" scoped >
+@import "../styles/LayoutArriendos.scss"
+</style>

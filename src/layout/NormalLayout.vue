@@ -17,7 +17,7 @@
         </v-main>
 
         <!-- Footer -->
-        <v-footer app>
+        <v-footer app color="blue-lighten-4">
             <!-- Contenido del pie de página -->
             hola soy un footer
         </v-footer>

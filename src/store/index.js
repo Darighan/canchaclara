@@ -45,6 +45,7 @@ export default createStore({
                     const user = await res.json()
                     console.log(user)
                     localStorage.setItem('token', user.token)
+                    localStorage.setItem('userName', user.userName)
 
                     commit('setUser', localStorage.getItem('token'))
                     return user
