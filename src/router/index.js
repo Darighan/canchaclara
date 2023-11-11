@@ -1,12 +1,75 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+//import HomeView from '../views/HomeView.vue'
+import { useStore } from 'vuex'
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    redirect: { name: 'inicio' },
+    component: () => import("../layout/NormalLayout.vue"),
+    children: [
+      {
+        path: '/inicio',
+        name: 'inicio',
+        component: () => import("../views/HomeView.vue")
+      },
+
+      {
+        path: '/login',
+        name: 'login',
+        component: () => import('../views/LoginView.vue')
+      }
+    ]
   },
+  {
+    path: '/arriendos',
+    name: 'arriendos',
+    redirect: { name: 'arriendosHome' },
+    component: () => import('../layout/LayoutArriendos.vue'),
+    children: [
+      {
+        path: '/arriendosHome',
+        name: 'arriendosHome',
+        component: () => import('../views/Arriendos/ArriendosHomeView.vue'),
+        meta: {
+          isAuth: true
+        }
+      },
+      {
+        path: '/agendarArriendos',
+        name: 'agendarArriendos',
+        component: () => import('../views/Arriendos/AgendarArriendosView.vue'),
+        meta: {
+          isAuth: true
+        }
+      },
+      {
+        path: '/verCanchas',
+        name: 'verCanchas',
+        component: () => import('../views/Arriendos/VerCanchasView.vue'),
+        meta: {
+          isAuth: true
+        }
+      }
+    ]
+
+  },
+  {
+    path: '/empresas',
+    name: 'empresas',
+    redirect: { name: 'empresasHome' },
+    component: () => import('../layout/LayoutEmpresas.vue'),
+    children: [
+      {
+        path: '/empresasHome',
+        name: 'empresasHome',
+        component: () => import('../views/Empresas/EmpresasHomeView.vue'),
+      }
+    ]
+
+  },
+
   {
     path: '/about',
     name: 'about',
@@ -20,23 +83,58 @@ const routes = [
     name: 'register',
     component: () => import('../views/RegisterView.vue')
   },
-  {
-    path: '/login',
-    name: 'login',
-    component: () => import('../views/LoginView.vue')
 
-  },
   {
     path: '/admin',
     name: 'admin',
-    component: () => import('../views/AdminView.vue')
-  }
+    component: () => import('../views/AdminView.vue'),
+    meta: {
+      isAuth: true
+    }
+  },
+  {
+    path: '/secreta',
+    name: 'secreta',
+    component: () => import('../views/VistaSecreta.vue'),
+    meta: {
+      isAuth: true
+    }
+  },
+  {
+    path: '/deportes',
+    name: 'deportes',
+    component: () => import('../views/ClientHomeView.vue'),
+    meta: {
+      isAuth: true
+    }
+
+  },
+
+
 
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior() {
+    return { top: 0, left: 0, behavior: 'smooth' }
+  }
+})
+
+router.beforeEach(async (to, from, next) => {
+  if (to.meta.isAuth) {
+    const store = useStore()
+    const verifyToken = await store.dispatch('verifyToken')
+    console.log(verifyToken)
+    if (localStorage.getItem('token') && verifyToken.msg == "Token valido") {
+      next()
+    } else {
+      next('/login')
+    }
+  } else {
+    next()
+  }
 })
 
 export default router
