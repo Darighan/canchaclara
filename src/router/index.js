@@ -19,6 +19,11 @@ const routes = [
         path: '/login',
         name: 'login',
         component: () => import('../views/LoginView.vue')
+      },
+      {
+        path: '/loginEmpresa',
+        name: 'loginEmpresa',
+        component: () => import('../views/LoginEmpresasView.vue')
       }
     ]
   },
@@ -60,14 +65,39 @@ const routes = [
     name: 'empresas',
     redirect: { name: 'empresasHome' },
     component: () => import('../layout/LayoutEmpresas.vue'),
+    isAuthEmpresa: true,
     children: [
       {
         path: '/empresasHome',
         name: 'empresasHome',
         component: () => import('../views/Empresas/EmpresasHomeView.vue'),
+        meta: {
+          isAuthEmpresa: true
+        }
+      },
+      {
+        path: '/empresasAdministracion',
+        name: 'empresasAdministracion',
+        component: () => import('../views/Empresas/EmpresasAdministracionView.vue'),
+        meta: {
+          isAuthEmpresa: true
+        }
       }
     ]
 
+  },
+  {
+    path: '/administracion',
+    name: 'administracion',
+    redirect: { name: 'administracionHome' },
+    component: () => import('../layout/LayoutAdministracion.vue'),
+    children: [
+      {
+        path: 'administracionHome',
+        name: 'administracionHome',
+        component: () => import('../views/Administracion/AdministracionHomeView.vue'),
+      }
+    ]
   },
 
   {
@@ -136,5 +166,23 @@ router.beforeEach(async (to, from, next) => {
     next()
   }
 })
+
+router.beforeEach(async (to, from, next) => {
+  if (to.meta.isAuthEmpresa) {
+    const store = useStore()
+    const verifyToken = await store.dispatch('verifyTokenEmpresa')
+    console.log(verifyToken)
+    if (localStorage.getItem('token') && verifyToken.msg == "Token valido") {
+      next()
+    } else {
+      next('/loginEmpresa')
+    }
+  } else {
+    next()
+  }
+})
+
+
+
 
 export default router

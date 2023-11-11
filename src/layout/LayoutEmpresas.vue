@@ -13,7 +13,7 @@
       <v-navigation-drawer app permanent stateless :mini-variant="miniVariant" :clipped="clipped">
         <!-- Contenido de la barra lateral -->
   
-        <router-link :to="{ name: 'agendarArriendos' }">
+        <router-link :to="{ name: 'empresasAdministracion' }">
           <div class="test">
             <v-btn>
               Administracion
@@ -23,7 +23,7 @@
         </router-link>
   
   
-        <router-link :to="{ name: 'verCanchas' }">
+        <router-link :to="{ name: 'empresasAdministracion' }">
           <div class="test">
             <v-btn>
               Ver Canchas Administracion

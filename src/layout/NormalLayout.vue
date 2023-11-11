@@ -34,5 +34,7 @@ const toggleSidebar = () => {
     miniVariant.value = !miniVariant.value;
     clipped.value = !clipped.value;
 };
+
+
 </script>
 <style></style>

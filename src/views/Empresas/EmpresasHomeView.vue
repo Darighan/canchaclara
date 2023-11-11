@@ -1,9 +1,9 @@
 <template>
-    <h1>Hola soy una vista de empresas</h1>
+    <h1>Bienvenido {{ userNameEmpresa }}</h1>
   </template>
 
 <script setup>
-
+const userNameEmpresa = localStorage.getItem('userNameEmpresa');
 
 
 </script>
