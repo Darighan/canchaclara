@@ -10,7 +10,7 @@ class AuthService {
 
     async login(email, password) {
         try {
-            const res = await fetch("https://becanchaclara-production.up.railway.app/auth/login", {
+            const res = await fetch(`${process.env.API}/auth/login`, {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",

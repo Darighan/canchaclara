@@ -6,15 +6,15 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    redirect: {name: 'inicio'},
+    redirect: { name: 'inicio' },
     component: () => import("../layout/NormalLayout.vue"),
-    children:[
+    children: [
       {
         path: '/inicio',
-        name:'inicio',
-        component: () => import ("../views/HomeView.vue")
+        name: 'inicio',
+        component: () => import("../views/HomeView.vue")
       },
-     
+
       {
         path: '/login',
         name: 'login',
@@ -25,7 +25,7 @@ const routes = [
   {
     path: '/arriendos',
     name: 'arriendos',
-    redirect: {name: 'arriendosHome'},
+    redirect: { name: 'arriendosHome' },
     component: () => import('../layout/LayoutArriendos.vue'),
     children: [
       {
@@ -33,7 +33,7 @@ const routes = [
         name: 'arriendosHome',
         component: () => import('../views/Arriendos/ArriendosHomeView.vue'),
         meta: {
-          isAuth : true
+          isAuth: true
         }
       },
       {
@@ -41,7 +41,7 @@ const routes = [
         name: 'agendarArriendos',
         component: () => import('../views/Arriendos/AgendarArriendosView.vue'),
         meta: {
-          isAuth : true
+          isAuth: true
         }
       },
       {
@@ -49,8 +49,22 @@ const routes = [
         name: 'verCanchas',
         component: () => import('../views/Arriendos/VerCanchasView.vue'),
         meta: {
-          isAuth : true
+          isAuth: true
         }
+      }
+    ]
+
+  },
+  {
+    path: '/empresas',
+    name: 'empresas',
+    redirect: { name: 'empresasHome' },
+    component: () => import('../layout/LayoutEmpresas.vue'),
+    children: [
+      {
+        path: '/empresasHome',
+        name: 'empresasHome',
+        component: () => import('../views/Empresas/EmpresasHomeView.vue'),
       }
     ]
 
@@ -95,11 +109,6 @@ const routes = [
     }
 
   },
-  {
-    path: '/empresa',
-    name: 'empresa',
-    component: () => import('../views/EmpresaView.vue'),
-  }
 
 
 

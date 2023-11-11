@@ -3,27 +3,20 @@
         <div class="Contenedor-Deportista">
             <router-link :to="{ name: 'arriendos' }">
                 <v-btn>
-                    Login Contenedor-Deportista
+                    Login Deportista
                 </v-btn>
             </router-link>
 
         </div>
         <div class="Contenedor-Empresa">
-            <router-link :to="{ name: 'empresa' }">
+            <router-link :to="{ name: 'empresas' }">
                 <v-btn>
                     Login Empresa
                 </v-btn>
             </router-link>
         </div>
 
-        <div class="Contenedor-CanchaClara">
-            <router-link :to="{ name: 'empresa' }">
-                <v-btn>
-                    Login CanchaClara
-                </v-btn>
-            </router-link>
-        </div>
-
+      
     </div>
 </template>
 

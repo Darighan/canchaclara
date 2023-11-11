@@ -3,7 +3,7 @@
     <!-- Header -->
     <v-app-bar app color="blue-lighten-4">
       <v-app-bar-nav-icon @click.stop="toggleSidebar" />
-      <v-toolbar-title>Cancha Clara</v-toolbar-title>
+      <v-toolbar-title>Cancha Clara Arriendos</v-toolbar-title>
       <router-link :to="{ name: 'home' }">
         <v-btn class="ml-auto" @click="cerrarSesion">Cerrar Sesión</v-btn>
       </router-link>

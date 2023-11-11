@@ -10,9 +10,7 @@ export default createStore({
     },
     getters: {
         //Datos Computados
-        times2(state) {
-            return state.counter * 2
-        }
+     
 
     },
     mutations: {
