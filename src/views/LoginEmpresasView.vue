@@ -1,7 +1,7 @@
 <template>
     <div class="bg-img">
         <div class="content">
-            <header> Login</header>
+            <header> Login Empresas</header>
             <form action="#">
                 <div class="field">
                     <span class="fas fa-user"></span>
@@ -60,7 +60,7 @@ const handleSubmit = async () => {
     }
 
     try {
-        const res = await store.dispatch('login', {
+        const res = await store.dispatch('loginEmpresa', {
             email: email.value,
             password: password.value
         })
@@ -78,7 +78,7 @@ const handleSubmit = async () => {
         showToast('Bienvenido a Cancha Clara', 'success', 'green')
         isLoad.value = false;
         isButtonDisabled.value = false;
-        router.push('/arriendos')
+        router.push('/empresas')
 
     } catch (error) {
         console.log(error)

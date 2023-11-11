@@ -15,6 +15,14 @@
                 </v-btn>
             </router-link>
         </div>
+        <div class="Contenedor-Administracion">
+            <router-link :to="{ name: 'administracion' }">
+                <v-btn>
+                    Login Administracion CanchaClara
+                </v-btn>
+            </router-link>
+        </div>
+
 
       
     </div>
@@ -30,14 +38,16 @@
 .Contenedor-Deportista {
     display: flex;
     justify-content: center;
+    margin-bottom: 2rem;
 }
 
 .Contenedor-Empresa {
     display: flex;
     justify-content: center;
+    margin-bottom: 2rem;
 }
 
-.Contenedor-CanchaClara {
+.Contenedor-Administracion {
     display: flex;
     justify-content: center;
 }
