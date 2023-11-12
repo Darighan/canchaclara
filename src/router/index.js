@@ -44,7 +44,7 @@ const routes = [
       {
         path: '/agendarArriendos',
         name: 'agendarArriendos',
-        component: () => import('../views/Arriendos/AgendarArriendosView.vue'),
+        component: () => import('../views/Arriendos/TestArriendos.vue'),
         meta: {
           isAuth: true
         }

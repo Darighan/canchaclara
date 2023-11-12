@@ -7,7 +7,8 @@ import "bootstrap"
 import 'vue-material-design-icons/styles.css'
 
 
-import "mosha-vue-toastify/dist/style.css"  
+import "mosha-vue-toastify/dist/style.css"
+ 
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
