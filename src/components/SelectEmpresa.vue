@@ -1,5 +1,6 @@
 <template>
     <select v-model="selectedEmpresa" @change="emitSelectedEmpresa">
+        <option value="Escoge tu Empresa" disabled>Escoge tu Empresa</option>
         <option v-for="empresa in empresas" :key="empresa.ID_Empresa" :value="empresa.ID_Empresa">
             {{ empresa.NombreEmpresa }}
         </option>
@@ -11,8 +12,8 @@ import { ref, onMounted, defineEmits } from 'vue';
 import { getApi } from '@/services/apiService';
 
 const empresas = ref([]);
-const selectedEmpresa = ref(null);
-
+const selectedEmpresa = ref('');
+ 
 // Aquí definimos los eventos que este componente puede emitir
 const emit = defineEmits(['selectedEmpresa']);
 

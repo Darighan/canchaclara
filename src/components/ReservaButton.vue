@@ -4,7 +4,7 @@
 
 <script setup>
 import { defineProps } from 'vue';
-import { getApi } from '@/services/apiService';
+import { postApi } from '@/services/apiService';
 
 const props = defineProps({
   selectedCancha: String,
@@ -15,7 +15,7 @@ const props = defineProps({
 const hacerReserva = async () => {
   if (props.selectedCancha && props.fecha && props.horaInicio) {
     // Asume que la función getApi se ha ajustado para manejar métodos POST
-    getApi(`${process.env.VUE_APP_API}/arriendos/reservarCancha`, {
+    postApi(`${process.env.API}/arriendos/reservarCancha`, {
       method: 'POST',
       body: JSON.stringify({
         idCancha: props.selectedCancha,
