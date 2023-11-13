@@ -24,6 +24,11 @@ const routes = [
         path: '/loginEmpresa',
         name: 'loginEmpresa',
         component: () => import('../views/LoginEmpresasView.vue')
+      },
+      {
+        path: '/loginAdministracion',
+        name: 'loginAdministracion',
+        component: () => import ('../views/LoginAdministracionView.vue')
       }
     ]
   },
@@ -96,6 +101,25 @@ const routes = [
         path: 'administracionHome',
         name: 'administracionHome',
         component: () => import('../views/Administracion/AdministracionHomeView.vue'),
+        meta: {
+          isAuthAdministrador: true 
+        }
+      },
+      {
+        path: 'verEmpresasView',
+        name: 'empresasView',
+        component: () => import('../views/Administracion/VerEmpresasView.vue'),
+        meta: {
+          isAuthAdministrador: true
+        }
+      },
+      {
+        path: 'verUsuariosView',
+        name: 'usuariosView',
+        component: () => import('../views/Administracion/VerUsuariosView.vue'),
+        meta: {
+          isAuthAdministrador: true
+        }
       }
     ]
   },
@@ -176,6 +200,21 @@ router.beforeEach(async (to, from, next) => {
       next()
     } else {
       next('/loginEmpresa')
+    }
+  } else {
+    next()
+  }
+})
+
+router.beforeEach(async (to, from, next) => {
+  if (to.meta.isAuthAdministrador) {
+    const store = useStore()
+    const verifyToken = await store.dispatch('verifyTokenEmpresa')
+    console.log(verifyToken)
+    if (localStorage.getItem('token') && verifyToken.msg == "Token valido") {
+      next()
+    } else {
+      next('/loginAdministracion')
     }
   } else {
     next()

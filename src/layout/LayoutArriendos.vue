@@ -46,7 +46,7 @@
     <!-- Footer -->
     <v-footer app color="blue-lighten-4">
       <!-- Contenido del pie de página -->
-      hola soy un footer
+      CanchaClara 2023 - Todos los derechos reservados
     </v-footer>
   </v-app>
 </template>
