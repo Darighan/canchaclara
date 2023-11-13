@@ -111,4 +111,13 @@ postApi(`${process.env.API}/addUser`, registerObj)
 
 <style scoped>
 
+.field input[type="submit"], button {
+  background-color: #FF5722; 
+  color: white; 
+}
+
+.field input {
+  border: 1px solid #9E9E9E; 
+}
+
 </style>

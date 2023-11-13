@@ -26,5 +26,22 @@
 </script>
 
 <style scoped>
+.schedule {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
 
+.time-slot {
+  background-color: #03A9F4; 
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+.background {
+  background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fmunicoihueco.cl%2FInicio%2F2022%2F12%2F26%2Fcanchas-de-padel-graderias-y-un-nuevo-centro-comunitario-son-los-proyectos-municipales-que-cierran-el-ano-en-coihueco%2F&psig=AOvVaw1sUtJ4S2DWEzvHyNZdBC-H&ust=1699939069257000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNClztScwIIDFQAAAAAdAAAAABAS'); 
+  background-size: cover;
+}
 </style>
