@@ -98,7 +98,7 @@ const routes = [
     component: () => import('../layout/LayoutAdministracion.vue'),
     children: [
       {
-        path: 'administracionHome',
+        path: '/administracionHome',
         name: 'administracionHome',
         component: () => import('../views/Administracion/AdministracionHomeView.vue'),
         meta: {
@@ -106,7 +106,7 @@ const routes = [
         }
       },
       {
-        path: 'verEmpresasView',
+        path: '/verEmpresasView',
         name: 'empresasView',
         component: () => import('../views/Administracion/VerEmpresasView.vue'),
         meta: {
@@ -114,7 +114,7 @@ const routes = [
         }
       },
       {
-        path: 'verUsuariosView',
+        path: '/verUsuariosView',
         name: 'usuariosView',
         component: () => import('../views/Administracion/VerUsuariosView.vue'),
         meta: {
@@ -209,7 +209,7 @@ router.beforeEach(async (to, from, next) => {
 router.beforeEach(async (to, from, next) => {
   if (to.meta.isAuthAdministrador) {
     const store = useStore()
-    const verifyToken = await store.dispatch('verifyTokenEmpresa')
+    const verifyToken = await store.dispatch('verifyTokenAdministracion')
     console.log(verifyToken)
     if (localStorage.getItem('token') && verifyToken.msg == "Token valido") {
       next()
