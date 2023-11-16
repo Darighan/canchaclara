@@ -1,7 +1,5 @@
 <template>
     <div class="bg-img-home">
-
-
         <div class="Contenedor central">
             <div class="Contenedor-Deportista">
                 <router-link :to="{ name: 'arriendos' }">
@@ -37,7 +35,8 @@
 
 </script>
 
-<style lang="scss" scoped>
-@import "../assets/styles/HomeViewStyle.scss"
+<style scoped>
+@import "../assets/styles/homeViewStyle.scss"
+
 </style>
 
