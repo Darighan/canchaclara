@@ -1,31 +1,38 @@
 <template>
-    <div>
-        <h1>Registro de Usuario</h1>
-        <form>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" autocomplete="off" required v-model="inptNombre"><br>
-
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" autocomplete="off" required v-model="inptApellido"><br>
-
-            <label for="correo">Correo electrónico:</label>
-            <input type="text" id="correo" name="correo"  autocomplete="off" required v-model="inptEmail"><br>
-
-            <label for="contrasena">Contraseña:</label>
-            <input type="password" id="contrasena"  autocomplete="off" name="contrasena" required v-model="inptPassword"><br>
-
-            <label for="telefono">Telefono:</label>
-            <input type="number" id="telefono" name="telefono" autocomplete="off" required v-model="inptTelefono"><br>
-
-            <!-- Agrega aquí más campos según tus necesidades -->
-
-            <input type="submit" value="Registrarse" @click.prevent="handleSubmit">
-
-        </form>
-
-
+    <div class="bg-img">
+        <div class="content">
+            <header> Registro de Usuario </header>
+            <form action="#">
+                <!-- Campos del formulario -->
+                <div class="field">
+                    <input type="text" id="nombre" name="nombre" required placeholder="Nombre" v-model="inptNombre" />
+                </div>
+                <div class="field">
+                    <input type="text" id="apellido" name="apellido" required placeholder="Apellido" v-model="inptApellido" />
+                </div>
+                <div class="field">
+                    <input type="text" autocomplete="off" id="correo" name="correo" required placeholder="Correo electrónico" v-model="inptEmail" />
+                </div>
+                <div class="field">
+                    <input type="password" autocomplete="new-password" id="contrasena" name="contrasena" required placeholder="Contraseña" v-model="inptPassword" />
+                </div>
+                <div class="field">
+                    <input type="number" id="telefono" name="telefono" required placeholder="Telefono" v-model="inptTelefono" />
+                </div>
+                <!-- Botón de registro -->
+                <div>
+                    <router-link :to="{ name: 'home' }">
+                        <v-btn class="ml-auto" @click="volverAtras">Volver Atras</v-btn>
+                    </router-link>
+                </div>
+                <div class="field">
+                    <input type="submit" value="Registrarse" @click.prevent="handleSubmit"/>
+                </div>
+            </form>
+        </div>
     </div>
 </template>
+
 
 <script setup>
 
@@ -110,14 +117,5 @@ postApi(`${process.env.API}/addUser`, registerObj)
 </script>
 
 <style scoped>
-
-.field input[type="submit"], button {
-  background-color: #FF5722; 
-  color: white; 
-}
-
-.field input {
-  border: 1px solid #9E9E9E; 
-}
-
+@import '../assets/styles/registerStyle.scss'
 </style>

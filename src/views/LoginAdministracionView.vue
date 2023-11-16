@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-img">
+    <div class="bg-img-admin">
         <div class="content">
             <header> Login Administracion </header>
             <form action="#">
@@ -12,22 +12,15 @@
                     <input :type="passwordType" class="pass-key" required placeholder="Ingrese su Contraseña"
                         v-model="password" />
                     <span class="show" @click="togglePassword"> {{ buttonText }} </span>
+                </div>        
+                <div class="field space">
+                    <input type="submit" value="Login" @click.prevent="handleSubmit" />
                 </div>
-                <div class="pass">
-                    <a href="#">Olvidaste la contraseña?</a>
-                </div>
-                <div class="register">
-                    <router-link :to="{ name: 'register' }">
-                        <a>Registrate!</a>
-                    </router-link>
-                </div>
+
                 <div>
                     <router-link :to="{ name: 'home' }">
-                        <v-btn class="ml-auto" @click="volverAtras">Volver Atras</v-btn>
+                        <v-btn class="ml-auto m-2" @click="volverAtras">Volver Atras</v-btn>
                     </router-link>
-                </div>
-                <div class="field">
-                    <input type="submit" value="Login" @click.prevent="handleSubmit" />
                 </div>
             </form>
         </div>
@@ -102,5 +95,5 @@ const volverAtras = () => {
 
 <style scoped  >
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Poppins:400,500&display=swap");
-@import '../assets/styles/loginStyle.scss'
+@import '../assets/styles/loginAdminStyle.scss'
 </style>
