@@ -21,6 +21,7 @@ import TimePicker from '@/components/TimePicker.vue';
 import ReservaButton from '@/components/ReservaButton.vue';
 import { postApi } from '@/services/apiService';
 import { showToast } from '@/utils/toast';
+import router from '@/router';
 
 const empresaSeleccionada = ref(null);
 const canchaSeleccionada = ref(null);
@@ -65,6 +66,7 @@ const handleSubmit = () => {
     .then(data => {
         if(data.message === 'ok'){
             showToast('Reserva realizada con éxito', 'success', 'green')
+            router.push('/arriendos')
         }
     }).catch(error => {
         console.log(error)

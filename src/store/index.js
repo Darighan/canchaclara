@@ -97,6 +97,7 @@ export default createStore({
                     console.log(user)
                     localStorage.setItem('token', user.token)
                     localStorage.setItem('userNameEmpresa', user.userNameEmpresa)
+                    localStorage.setItem('idEmpresa', user.idEmpresa)
 
                     commit('setUser', localStorage.getItem('token'))
                     return user
@@ -149,6 +150,7 @@ export default createStore({
                     console.log(user)
                     localStorage.setItem('token', user.token)
                     localStorage.setItem('userNameAdministracion', user.userNameAdministracion)
+                    localStorage.setItem('idAdministracion', user.ID_Administrador)
 
                     commit('setUser', localStorage.getItem('token'))
                     return user

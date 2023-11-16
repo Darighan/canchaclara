@@ -39,6 +39,14 @@
         </div>
       </router-link>
 
+      <router-link :to="{ name: 'gestionPerfil' }">
+        <div class="test">
+          <v-btn>
+            Gestion Perfil
+          </v-btn>
+        </div>
+      </router-link>
+
 
 
     </v-navigation-drawer>

@@ -28,7 +28,7 @@ const routes = [
       {
         path: '/loginAdministracion',
         name: 'loginAdministracion',
-        component: () => import ('../views/LoginAdministracionView.vue')
+        component: () => import('../views/LoginAdministracionView.vue')
       },
       {
         path: '/register',
@@ -74,6 +74,14 @@ const routes = [
         meta: {
           isAuth: true
         }
+      },
+      {
+        path: '/gestionPerfil',
+        name: 'gestionPerfil',
+        component: () => import('../views/Arriendos/GestionPerfilView.vue'),
+        meta: {
+          isAuth: true
+        }
       }
     ]
 
@@ -94,12 +102,18 @@ const routes = [
         }
       },
       {
-        path: '/empresasAdministracion',
-        name: 'empresasAdministracion',
-        component: () => import('../views/Empresas/EmpresasAdministracionView.vue'),
+        path: '/gestionarReservasEmpresas',
+        name: 'gestionarReservasEmpresas',
+        component: () => import('../views/Empresas/GestionarReservasEmpresasView.vue'),
         meta: {
           isAuthEmpresa: true
         }
+      },
+      {
+        path: '/creacionTorneos',
+        name: 'creacionTorneos',
+        component: () => import('../views/Empresas/CreacionTorneosView.vue'),
+        isAuthEmpresa: true
       }
     ]
 
@@ -115,7 +129,7 @@ const routes = [
         name: 'administracionHome',
         component: () => import('../views/Administracion/AdministracionHomeView.vue'),
         meta: {
-          isAuthAdministrador: true 
+          isAuthAdministrador: true
         }
       },
       {
@@ -130,6 +144,22 @@ const routes = [
         path: '/verUsuariosView',
         name: 'usuariosView',
         component: () => import('../views/Administracion/VerUsuariosView.vue'),
+        meta: {
+          isAuthAdministrador: true
+        }
+      },
+      {
+        path: '/estadisticasAdministracionView',
+        name: 'estadisticasAdministracionView',
+        component: () => import('../views/Administracion/VisualizarEstadisticasAdministracionView.vue'),
+        meta: {
+          isAuthAdministrador: true
+        }
+      },
+      {
+        path: '/usoSistemaAdministracionView',
+        name: 'usoSistemaAdministracionView',
+        component: () => import('../views/Administracion/UsoSistemaAdministracionView.vue'),
         meta: {
           isAuthAdministrador: true
         }

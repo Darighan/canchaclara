@@ -30,6 +30,22 @@
             </v-btn>
           </div>
         </router-link>
+
+        <router-link :to="{ name: 'estadisticasAdministracionView' }">
+          <div class="test">
+            <v-btn>
+              Ver Estadisticas
+            </v-btn>
+          </div>
+        </router-link>
+
+        <router-link :to="{ name: 'usoSistemaAdministracionView' }">
+          <div class="test">
+            <v-btn>
+              Uso del Sistema
+            </v-btn>
+          </div>
+        </router-link>
   
   
   

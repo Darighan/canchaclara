@@ -12,21 +12,21 @@
       <!-- Sidebar -->
       <v-navigation-drawer app permanent stateless :mini-variant="miniVariant" :clipped="clipped">
         <!-- Contenido de la barra lateral -->
-  
-        <router-link :to="{ name: 'empresasAdministracion' }">
+
+        <router-link :to="{ name: 'gestionarReservasEmpresas' }">
           <div class="test">
             <v-btn>
-              Administracion
+              Gestionar Reservas
             </v-btn>
           </div>
   
         </router-link>
   
   
-        <router-link :to="{ name: 'empresasAdministracion' }">
+        <router-link :to="{ name: 'creacionTorneos' }">
           <div class="test">
             <v-btn>
-              Ver Canchas Administracion
+              Creacion Torneos
             </v-btn>
           </div>
         </router-link>
