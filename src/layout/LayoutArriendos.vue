@@ -31,6 +31,14 @@
         </div>
       </router-link>
 
+      <router-link :to="{ name: 'inscripcionTorneos' }">
+        <div class="test">
+          <v-btn>
+            Inscripcion Torneos
+          </v-btn>
+        </div>
+      </router-link>
+
 
 
     </v-navigation-drawer>

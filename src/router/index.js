@@ -66,6 +66,14 @@ const routes = [
         meta: {
           isAuth: true
         }
+      },
+      {
+        path: '/inscripcionTorneos',
+        name: 'inscripcionTorneos',
+        component: () => import('../views/Arriendos/InscripcionTorneosView.vue'),
+        meta: {
+          isAuth: true
+        }
       }
     ]
 
