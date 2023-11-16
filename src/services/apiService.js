@@ -26,4 +26,16 @@ const deleteApi = async (url) => {
     return await response.json();
 }
 
-export { getApi, postApi, deleteApi}
+const putApi = async (url, bodyJson) => {
+    const response = await fetch(url, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(bodyJson)
+    });
+
+    return await response.json();
+}
+
+export { getApi, postApi, deleteApi, putApi}
