@@ -25,13 +25,27 @@
                     </span>
                 </td>
                 <td>
-                    <button @click="deleteUsers(usuario.idUser)" class="btn btn-danger">Eliminar</button>
+                    <button @click="showDialog(usuario.idUser)" class="btn btn-danger">Eliminar</button>
                 </td>
 
             </tr>
 
         </tbody>
     </table>
+
+    <v-dialog v-model="dialog" persistent max-width="290">
+        <v-card>
+            <v-card-title class="headline">Confirmación</v-card-title>
+            <v-card-text>
+                ¿Estás seguro de que quieres eliminar este usuario?
+            </v-card-text>
+            <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="green darken-1" text @click="confirmDelete">Confirmar</v-btn>
+                <v-btn color="red darken-1" text @click="dialog = false">Cancelar</v-btn>
+            </v-card-actions>
+        </v-card>
+    </v-dialog>
 </template>
 
 <script setup>
@@ -39,33 +53,47 @@ import { ref, onMounted } from 'vue'
 import { getApi, deleteApi } from '@/services/apiService.js'
 
 
-const usuarios = ref()
+const usuarios = ref();
+const dialog = ref(false);
+const userIdToDelete = ref(null);
 
 onMounted(async () => {
     loadUsers()
 })
 
+
 const loadUsers = async () => {
-    try{
+    try {
         await getApi(`${process.env.API}/usersForAdmin`)
-        .then((data) => {
-            usuarios.value = data
-        })
-    } catch(error){
+            .then((data) => {
+                usuarios.value = data
+            })
+    } catch (error) {
         console.log(error)
     }
 }
 
 const deleteUsers = async (idUser) => {
-    try{
+    try {
         await deleteApi(`${process.env.API}/deleteUser/${idUser}`)
         loadUsers()
-        }catch(error){
+    } catch (error) {
         console.log(error)
     }
 }
 
+const showDialog = (idUser) => {
+    userIdToDelete.value = idUser;
+    dialog.value = true;
+};
+
+const confirmDelete = async() => {
+    await deleteUsers(userIdToDelete.value)
+    dialog.value = false
+}
+
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "../../assets/styles/VerUsuariosViewStyle.scss"
 </style>

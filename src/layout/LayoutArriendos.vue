@@ -68,5 +68,5 @@ const cerrarSesion = () => {
 }
 </script>
 <style lang="scss" scoped >
-@import "../styles/LayoutArriendos.scss"
+@import "../assets/styles/LayoutArriendos.scss"
 </style>

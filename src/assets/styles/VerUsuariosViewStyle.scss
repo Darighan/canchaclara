@@ -1,0 +1,34 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 15px; /* Añadir un poco de padding para asegurar espacio alrededor */
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 500px; /* Máximo ancho del modal */
+    max-height: 90vh; /* Altura máxima basada en el viewport */
+    overflow-y: auto; /* Permitir desplazamiento interno si es necesario */
+    box-sizing: border-box; /* Asegura que padding no afecte el ancho total */
+}
+
+/* Estilos para dispositivos más pequeños */
+@media (max-width: 600px) {
+    .modal-content {
+        width: 95%; /* Más ancho en pantallas pequeñas */
+    }
+}
+
+/* Resto de los estilos... */

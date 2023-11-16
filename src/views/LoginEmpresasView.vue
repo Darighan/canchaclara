@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-img">
+    <div class="bg-img-empresa">
         <div class="content">
             <header> Login Empresas</header>
             <form action="#">
@@ -102,5 +102,5 @@ const volverAtras = () => {
 
 <style scoped  >
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Poppins:400,500&display=swap");
-@import '../assets/styles/loginStyle.scss'
+@import '../assets/styles/loginEmpresaStyle.scss'
 </style>

@@ -34,21 +34,6 @@
 
 </script>
 
-<style>
-.Contenedor-Deportista {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-}
-
-.Contenedor-Empresa {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-}
-
-.Contenedor-Administracion {
-    display: flex;
-    justify-content: center;
-}
+<style lang="scss" scoped>
+@import "../assets/styles/HomeViewStyle.scss"
 </style>
