@@ -13,20 +13,20 @@
       <v-navigation-drawer app permanent stateless :mini-variant="miniVariant" :clipped="clipped">
         <!-- Contenido de la barra lateral -->
   
-        <router-link :to="{ name: 'agendarArriendos' }">
+        <router-link :to="{ name: 'usuariosView' }">
           <div class="test">
             <v-btn>
-              Agendar Arriendos
+              Ver Usuarios
             </v-btn>
           </div>
   
         </router-link>
   
   
-        <router-link :to="{ name: 'verCanchas' }">
+        <router-link :to="{ name: 'empresasView' }">
           <div class="test">
             <v-btn>
-              Ver Canchas
+              Ver Empresas
             </v-btn>
           </div>
         </router-link>
@@ -46,7 +46,7 @@
       <!-- Footer -->
       <v-footer app color="blue-lighten-4">
         <!-- Contenido del pie de página -->
-        hola soy un footer
+        CanchaClara 2023 - Todos los derechos reservados
       </v-footer>
     </v-app>
   </template>

@@ -130,6 +130,58 @@ export default createStore({
                 console.log(error)
             }
         },
+
+        async loginAdministracion({ commit }, { email, password }) {
+            try {
+                const res = await fetch(
+                    `${process.env.API}/auth/loginAdministracion`,
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({ email, password })
+                    })
+
+                if (res.ok) {
+                    const user = await res.json()
+                    console.log(user)
+                    localStorage.setItem('token', user.token)
+                    localStorage.setItem('userNameAdministracion', user.userNameAdministracion)
+
+                    commit('setUser', localStorage.getItem('token'))
+                    return user
+                } else {
+
+                    const err = await res.json()
+
+                    return err
+                }
+
+
+            } catch (error) {
+                console.log(error)
+            }
+        },
+
+        async verifyTokenAdministracion() {
+            try {
+                const res = await fetch(
+                    `${process.env.API}/auth/verifyTokenAdministracion`,
+                    {
+                        method: 'GET',
+                        headers: {
+                            'x-token': localStorage.getItem('token'),
+                            Accept: '*/*',
+                        },
+                    },
+                )
+                const data = await res.json()
+                return data
+            } catch (error) {
+                console.log(error)
+            }
+        },
     },
     modules: {
         //subdivide the store
