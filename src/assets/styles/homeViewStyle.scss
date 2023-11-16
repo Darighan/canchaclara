@@ -1,24 +1,47 @@
+/* HomeViewStyle.scss */
 .bg-img-home {
-    background: url("../FondoAzulFutbol.jpg");
+    background: url("@/assets/FondoAzulFutbol.jpg"); /* Ruta corregida con alias */
     height: 100vh;
     background-size: cover;
     background-position: center;
-}
-
-.Contenedor-Deportista {
     display: flex;
+    align-items: center;
     justify-content: center;
+  }
+  
+  .contenedor-central {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px; /* Ajustar según la anchura deseada */
+    margin-top: 5vh; /* Espacio en la parte superior */
+  }
+  
+  /* Estilos específicos para cada tipo de login */
+  .contenedor-deportista, .contenedor-empresa, .contenedor-administracion {
     margin-bottom: 2rem;
-}
+  }
 
-.Contenedor-Empresa {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-}
-
-.Contenedor-Administracion {
-    display: flex;
-    justify-content: center;
-}
-
+  /* Estilos para los nuevos contenedores agregados debajo */
+  .contenedor-bienvenida, .contenedor-deportista-nuevo, .contenedor-administracion-nuevo {
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem; /* Espacio entre las secciones */
+  }
+  
+  v-btn {
+    /* Estilos para botones */
+  }
+  
+  h1 {
+    color: #333; /* Color del texto para el título */
+    margin-bottom: 0.5em;
+  }
+  
+  p {
+    color: #555; /* Color del texto para los párrafos */
+  }
+  
