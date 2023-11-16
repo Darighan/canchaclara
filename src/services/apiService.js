@@ -15,4 +15,15 @@ const postApi = async (url, bodyJson) => {
     return await response.json();
 }
 
-export { getApi, postApi}
+const deleteApi = async (url) => {
+    const response = await fetch(url, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        } //Quizas la elimine la cabecera, debere revisar si funciona o no
+    });
+
+    return await response.json();
+}
+
+export { getApi, postApi, deleteApi}
