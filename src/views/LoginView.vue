@@ -96,8 +96,7 @@ const togglePassword = () => {
     showPassword.value = !showPassword.value
 }
 const volverAtras = () => {
-  localStorage.removeItem('token');
-  localStorage.removeItem('userNameEmpresa');
+  console.log('Pa atras mi pana')
 }
 
 </script>

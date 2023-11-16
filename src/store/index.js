@@ -44,6 +44,7 @@ export default createStore({
                     console.log(user)
                     localStorage.setItem('token', user.token)
                     localStorage.setItem('userName', user.userName)
+                    localStorage.setItem('idUser', user.idUser)
 
                     commit('setUser', localStorage.getItem('token'))
                     return user

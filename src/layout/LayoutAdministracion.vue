@@ -65,6 +65,7 @@
   
   const cerrarSesion = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('userNameAdministracion');
   }
   </script>
   <style lang="scss" scoped >

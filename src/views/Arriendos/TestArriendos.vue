@@ -4,9 +4,10 @@
         <SelectEmpresa @selected-empresa="setEmpresa" />
         <SelectCancha v-if="empresaSeleccionada" :selectedEmpresa="empresaSeleccionada" @selected-cancha="setCancha" />
         <DatePicker v-if="canchaSeleccionada" @update:fecha="setFecha" />
-        <TimePicker v-if="fechaSeleccionada" @update:hora="setHora" />
+        <TimePicker v-if="fechaSeleccionada" :fechaSeleccionada="fechaSeleccionada"
+  :canchaSeleccionada="canchaSeleccionada" @update:hora="setHora" />
         <ReservaButton v-if="horaSeleccionada" :selectedCancha="canchaSeleccionada" :fecha="fechaSeleccionada"
-            :horaInicio="horaSeleccionada" />
+            :horaInicio="horaSeleccionada" @click="handleSubmit" />
     </div>
 </template>
  
@@ -18,6 +19,8 @@ import SelectCancha from '@/components/SelectCancha.vue';
 import DatePicker from '@/components/DatePicker.vue';
 import TimePicker from '@/components/TimePicker.vue';
 import ReservaButton from '@/components/ReservaButton.vue';
+import { postApi } from '@/services/apiService';
+import { showToast } from '@/utils/toast';
 
 const empresaSeleccionada = ref(null);
 const canchaSeleccionada = ref(null);
@@ -46,6 +49,28 @@ const setFecha = (fecha) => {
 const setHora = (hora) => {
     horaSeleccionada.value = hora;
 };
+
+const handleSubmit = () => {
+    // Envía la reserva al servidor
+    const reserva = {
+        idUser: localStorage.getItem('idUser'),
+        empresa: empresaSeleccionada.value,
+        cancha: canchaSeleccionada.value,
+        fecha: fechaSeleccionada.value,
+        horaInicio: horaSeleccionada.value,
+    };
+    console.log(reserva);
+
+    postApi(`${process.env.API}/addReserva`, reserva)
+    .then(data => {
+        if(data.message === 'ok'){
+            showToast('Reserva realizada con éxito', 'success', 'green')
+        }
+    }).catch(error => {
+        console.log(error)
+    })
+};
+
 
 </script>
  

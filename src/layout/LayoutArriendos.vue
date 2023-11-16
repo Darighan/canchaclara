@@ -65,6 +65,8 @@ const toggleSidebar = () => {
 
 const cerrarSesion = () => {
   localStorage.removeItem('token');
+  localStorage.removeItem('idUser');
+  localStorage.removeItem('userName');
 }
 </script>
 <style lang="scss" scoped >
