@@ -34,13 +34,17 @@
         </tbody>
 
     </table>
+    <h2>Distribucion Arriendos por Mes</h2>
+    <DoughnutChart :chartData="chartData" />
 </template>
 
 <script setup>
 
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { getApi, putApi } from '@/services/apiService.js'
 import { showToast } from '@/utils/toast';
+import { DoughnutChart } from 'vue-chart-3';
+import { Chart, registerables } from "chart.js";
 
 const ID_Empresa = localStorage.getItem('idEmpresa')
 const reservas = ref();
@@ -58,9 +62,14 @@ const loadReservas = async (ID_Empresa) => {
             })
 
     } catch (error) {
+        showToast('Error al cargar reservas', 'error', 'red')
         console.log(error)
     }
 }
+
+watch(reservas, (newReservas) => {
+  updateChartData(newReservas);
+});
 
 const formatFecha = (fecha) => {
     return fecha.split('T')[0];
@@ -80,6 +89,37 @@ const updateEstadoReserva = async (ID_Reserva, EstadoReserva) => {
 }
 
 
+Chart.register(...registerables);
+
+const chartData = ref({
+  labels: [],
+  datasets: [
+    {
+      data: [],
+      backgroundColor: ["#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#e31a1c", "#fdbf6f", "#ff7f00", "#cab2d6", "#6a3d9a", "#ffff99" , "#b15928" ,],
+    },
+  ],
+});
+
+const updateChartData = (reservas) => {
+    const cantidadPorMes = Array.from({ length: 12 }).fill(0);
+
+    reservas.forEach((reserva) => {
+        const mes = new Date(reserva.FechaReserva).getMonth();
+        cantidadPorMes[mes]++;
+    });
+
+    chartData.value.labels= cantidadPorMes.map((_, index) => 
+        new Date(0, index).toLocaleString('es-CL', { month: 'long' })
+    
+    );
+    chartData.value.datasets[0].data = cantidadPorMes;
+}
+
 </script>
 
-<style scoped></style>
+<style scoped>
+h1{
+    color: black;
+}
+</style>
