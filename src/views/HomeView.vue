@@ -2,7 +2,7 @@
   <div class="bg-img-home">
     <div class="contenedor-central">
       <div class="titulo-central">
-        <h1>Bienvenido a CanchaClara</h1>
+        <h1 class="tituloHomeView">Bienvenido a CanchaClara</h1>
       </div>
       <div class="opciones">
         <!-- Opción de arriendo que redirige a LoginView -->

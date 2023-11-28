@@ -1,0 +1,46 @@
+.distribucionMes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.graficoDistribucionMes{
+width: 300px;
+height: 300px;
+}
+
+.sinReservas {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+    color: #666;
+    font-style: italic;
+    width: 100%;
+}
+
+.filtrarPorMes{
+    font-family: Arial, sans-serif;
+    margin: 10px;
+
+}
+
+.filtrarPorMes label{
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.filtrarPorMes select{
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    padding: 5px 10px0;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+    text-align: center;
+
+}
+
+.filtrarPorMes select:hover{
+    border-color: #888;
+}

@@ -3,7 +3,7 @@
         <!-- Header -->
         <v-app-bar app color="blue-lighten-4">
             <v-app-bar-nav-icon @click.stop="toggleSidebar">
-                <v-icon></v-icon>
+                <img src="../assets/LogoCanchaClaraBlue.png" alt="logo" class="logo" />
             </v-app-bar-nav-icon>
             <v-toolbar-title>Cancha Clara</v-toolbar-title>
         </v-app-bar>
@@ -38,5 +38,5 @@ const toggleSidebar = () => {
 
 </script>
 <style lang="scss" scoped>
-
+@import "../assets/styles/LayoutArriendos.scss"
 </style>

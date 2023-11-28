@@ -29,9 +29,9 @@
   margin-top: 2rem; /* Espacio después del título */
 }
 
-h1 {
+.tituloHomeView{
   font-family: 'Montserrat', sans-serif;
-  color: #fff;
+  color: #ffffff;
 }
 
 .opciones {
@@ -54,7 +54,8 @@ h1 {
   margin-bottom: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-
+  text-decoration: none;
+  
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);
   }

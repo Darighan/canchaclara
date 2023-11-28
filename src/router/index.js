@@ -52,6 +52,14 @@ const routes = [
         }
       },
       {
+        path: '/misReservas',
+        name: 'misReservas',
+        component: () => import('../views/Arriendos/MisReservasView.vue'),
+        meta: {
+          isAuth: true
+        }
+      },
+      {
         path: '/agendarArriendos',
         name: 'agendarArriendos',
         component: () => import('../views/Arriendos/TestArriendos.vue'),
