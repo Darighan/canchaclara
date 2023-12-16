@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-img">
+    <div class="bg-img-register">
         <div class="content">
             <header> Registro de Usuario </header>
             <form action="#">
@@ -20,13 +20,13 @@
                     <input type="number" id="telefono" name="telefono" required placeholder="Telefono" v-model="inptTelefono" />
                 </div>
                 <!-- Botón de registro -->
-                <div>
+                <div class="field">
+                    <input type="submit" value="Registrarse" @click.prevent="handleSubmit"/>
+                </div>
+                <div class="space">
                     <router-link :to="{ name: 'home' }">
                         <v-btn class="ml-auto" @click="volverAtras">Volver Atras</v-btn>
                     </router-link>
-                </div>
-                <div class="field">
-                    <input type="submit" value="Registrarse" @click.prevent="handleSubmit"/>
                 </div>
             </form>
         </div>

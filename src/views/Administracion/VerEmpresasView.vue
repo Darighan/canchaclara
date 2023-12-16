@@ -51,6 +51,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { getApi, deleteApi } from '@/services/apiService.js'
+import { showToast } from '@/utils/toast';
 
 const empresas = ref();
 const dialog = ref(false);
@@ -88,8 +89,13 @@ const showDialog = (ID_Empresa) => {
 }
 
 const confirmDelete = async () => {
-    await deleteEmpresas(empresaIdToDelete.value)
-    dialog.value = false
+    try {
+        await deleteEmpresas(empresaIdToDelete.value)
+        dialog.value = false
+        showToast('Empresa Eliminada Correctamente', 'success', 'green')
+    } catch (error) {
+        showToast('Error al eliminar Empresa', 'danger', 'red')
+    }
 }
 </script>
 

@@ -21,13 +21,13 @@
                         <a>Registrate!</a>
                     </router-link>
                 </div>
-                <div>
+                <div class="field">
+                    <input type="submit" value="Login" @click.prevent="handleSubmit" />
+                </div>
+                <div class="space">
                     <router-link :to="{ name: 'home' }">
                         <v-btn class="ml-auto" @click="volverAtras">Volver Atras</v-btn>
                     </router-link>
-                </div>
-                <div class="field">
-                    <input type="submit" value="Login" @click.prevent="handleSubmit" />
                 </div>
             </form>
         </div>

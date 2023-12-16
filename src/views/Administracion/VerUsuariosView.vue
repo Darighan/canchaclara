@@ -51,6 +51,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { getApi, deleteApi } from '@/services/apiService.js'
+import { showToast } from '@/utils/toast';
 
 
 const usuarios = ref();
@@ -87,9 +88,16 @@ const showDialog = (idUser) => {
     dialog.value = true;
 };
 
-const confirmDelete = async() => {
-    await deleteUsers(userIdToDelete.value)
-    dialog.value = false
+const confirmDelete = async () => {
+    try {
+        await deleteUsers(userIdToDelete.value)
+        dialog.value = false
+        showToast('Usuario Eliminado Correctamente', 'success', 'green')
+    } catch (error) {
+        showToast('Error al eliminar usuario', 'danger', 'red')
+    }
+
+
 }
 
 </script>

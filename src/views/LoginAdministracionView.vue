@@ -17,7 +17,7 @@
                     <input type="submit" value="Login" @click.prevent="handleSubmit" />
                 </div>
 
-                <div>
+                <div class="space">
                     <router-link :to="{ name: 'home' }">
                         <v-btn class="ml-auto m-2" @click="volverAtras">Volver Atras</v-btn>
                     </router-link>
